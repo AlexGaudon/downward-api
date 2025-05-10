@@ -30,6 +30,24 @@
             <div class="gap-8 grid grid-cols-1 md:grid-cols-2">
                 <div class="bg-gray-700 p-6 rounded-lg">
                     <div class="flex items-center mb-6">
+                        <img src="{{ url_for('static', filename='images/node-icon.png') }}" alt="Node Icon"
+                            class="mr-3 w-10 h-10" loading="eager">
+                        <h2 class="font-semibold text-gray-100 text-xl">Node Information</h2>
+                    </div>
+                    <div class="space-y-6">
+                        <div>
+                            <p class="mb-3 font-medium text-gray-200 text-lg">Node Name: <span class="text-blue-300">{{info.node_name }}</span></p>
+                            {% if info.node_name != 'Not set' %}
+                            <img src="{{ url_for('static', filename='images/' + info.node_name + '.png') }}"
+                                alt="Node Image" class="shadow-md rounded-lg w-full h-96 object-cover" loading="eager"
+                                fetchpriority="high">
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-gray-700 p-6 rounded-lg">
+                    <div class="flex items-center mb-6">
                         <img src="{{ url_for('static', filename='images/pod-icon.png') }}" alt="Pod Icon"
                             class="mr-3 w-10 h-10" loading="eager">
                         <h2 class="font-semibold text-gray-100 text-xl">Pod Information</h2>
@@ -38,25 +56,6 @@
                         <p><span class="font-medium text-blue-300">Name:</span> {{ info.pod_name }}</p>
                         <p><span class="font-medium text-blue-300">Namespace:</span> {{ info.pod_namespace }}</p>
                         <p><span class="font-medium text-blue-300">IP:</span> {{ info.pod_ip }}</p>
-                    </div>
-                </div>
-
-                <div class="bg-gray-700 p-6 rounded-lg">
-                    <div class="flex items-center mb-6">
-                        <img src="{{ url_for('static', filename='images/node-icon.png') }}" alt="Node Icon"
-                            class="mr-3 w-10 h-10" loading="eager">
-                        <h2 class="font-semibold text-gray-100 text-xl">Node Information</h2>
-                    </div>
-                    <div class="space-y-6">
-                        <div>
-                            <p class="mb-3 font-medium text-gray-200 text-lg">Node Name: <span class="text-blue-300">{{
-                                    info.node_name }}</span></p>
-                            {% if info.node_name != 'Not set' %}
-                            <img src="{{ url_for('static', filename='images/' + info.node_name + '.png') }}"
-                                alt="Node Image" class="shadow-md rounded-lg w-full h-96 object-cover" loading="eager"
-                                fetchpriority="high">
-                            {% endif %}
-                        </div>
                     </div>
                 </div>
             </div>
